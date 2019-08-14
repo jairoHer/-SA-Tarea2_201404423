@@ -32,7 +32,7 @@ responder.on('piloto',(req,cb)=>{
         cb('No hay solicitudes de viajes');
     }else{
         console.log("lugar Actual: "+req.ubicacionActual+" ubicacion usuario: "+origen)
-        datos.piloto.ubicacion=ubicacionActual;
+        datos.piloto.ubicacion=req.ubicacionActual;
         datos.piloto.vacio=false;
         cb('solicitud de viaje de: '+usuario);
     }
