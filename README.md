@@ -43,4 +43,24 @@ npm install cote --save
 _Esto instala el cote de manera local en el directorio del proyecto. el --save agrega el paquete instalado a package.json._
 
 ## Funcionamiento de la aplicacion
+_La aplicacion consiste en la creacion de 3 clientes y sus respectivos servicios los cuales estan el archivo cliente_uber_service.js_
+_Para poder usar la libreria cote se debe colocar su respectivo require al inicio del .js_
+```
+const cote = require('cote');
+```
+_En el caso de ser un cliente se debe definir que es un requester y asignarle un nombre con el que se identificara
+con los servicios_
+```
+const requester = new cote.Requester({ name: 'Nombre' });
+```
+_Para mandar informacion al servidor debe identificar el servicio que quiere utilizar y los datos que desea mandar_
+```
+const request = { type: 'piloto', ubicacionActual: 'Zona1', nombre: 'Pedro', Costo: 10 };
+```
+_Despues se manda la informacion indicada anteriormente y se despliega en consola la respuesta del servidor_
+```
+requester.send(request, (res) => {
+    console.log(res);
+});
+```
 
