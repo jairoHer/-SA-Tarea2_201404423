@@ -57,10 +57,41 @@ _Para mandar informacion al servidor debe identificar el servicio que quiere uti
 ```
 const request = { type: 'piloto', ubicacionActual: 'Zona1', nombre: 'Pedro', Costo: 10 };
 ```
+_Es importante destacar que el 'type' debe indicar el nombre del microservicio de lado del servidor._
 _Despues se manda la informacion indicada anteriormente y se despliega en consola la respuesta del servidor_
 ```
 requester.send(request, (res) => {
     console.log(res);
 });
 ```
+_Para la creacion de los servicios se debe realizar la importacion de la libreria cote de la misma forma que de los clientes._Despues
+```
+const cote = require('cote');
+```
+_Se debe especificar el nombre del servidor que manejara los servicios._
+```
+const responder = new cote.Responder({ name: 'ESB' });
+```
+_La palabra "Responder" sirve indicar que este sera el servidor que atienda las peticiones de los clientes._
 
+_Para crear un microservicio primero se debe verificar que el nombre de este sea igual al indicado por su cliente que
+quiere acceder a el. Este nombre es el primer parametro del servicio._
+_Como segundo parametro recibe el request desde el cliente._
+_El cuerpo de la funcion son las operaciones que realizara el microservicio con la informacion brindada por el cliente.
+Despues de realizar la operacion se le envia una respuesta al cliente._
+```
+//Servicio al que accede el piloto de uber
+responder.on('piloto',(req,cb)=>{
+    datosPiloto.vacio=false;
+    datosPiloto=true;
+
+    if(viaje===false){
+        cb('No hay solicitudes de viajes');
+    }else{
+        console.log("lugar Actual: "+req.ubicacionActual+" ubicacion usuario: "+origen)
+        datos.piloto.ubicacion=req.ubicacionActual;
+        datos.piloto.vacio=false;
+        cb('solicitud de viaje de: '+usuario);
+    }
+});
+```
