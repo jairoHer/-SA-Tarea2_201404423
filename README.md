@@ -2,7 +2,7 @@
 _Uso de microservicios para la simulacion de un piloto, cliente y rastreo de la aplicacion Uber.
 Los Microservicios fueron creados en nodejs con la ayuda de la libreria cote._
 ## Video demostrativo
-[![Video de demostracion, presione click](https://img.youtube.com/vi/TadBTuP_0FI/0.jpg)](https://www.youtube.com/watch?v=TadBTuP_0FI "Video de demostracion, presione click")
+[![Video de demostracion, presione click](https://img.youtube.com/vi/TadBTuP_0FI/0.jpg)](https://www.youtube.com/watch?v=TadBTuP_0FI "Video de demostracion, haga click en la imagen")
 ## Tabla de contenido
 
 - [Requisitos](#Requisitos).
